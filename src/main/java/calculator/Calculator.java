@@ -11,51 +11,84 @@ public class Calculator {
         double a = Double.parseDouble(expr[0]);
         String op1 = expr[1];
         double b = Double.parseDouble(expr[2]);
-        String op2 = expr[3];
-        double c = Double.parseDouble(expr[4]);
-        double result = 0;
-        String op = op1 + op2;
+        if (expr.length > 3) {
+            String op2 = expr[3];
+            double c = Double.parseDouble(expr[4]);
+            double result = 0;
+            String op = op1 + op2;
 
-             switch (op) {
+            switch (op) {
                 case "+":
-                result = a + b;
+                    result = a + b;
+                    break;
+                case "-":
+                    result = a - b;
+                    break;
+                case "*":
+                    result = a * b;
+                    break;
+                case "/":
+                    result = a / b;
+                    break;
+                case "--":
+                    result = a - b - c;
+                    break;
+                case "-+":
+                    result = a - b + c;
+                    break;
+                case "++":
+                    result = a + b + c;
+                    break;
+                case "+-":
+                    result = a + b - c;
+                    break;
+                case "//":
+                    result = a / b / c;
+                    break;
+                case "/*":
+                    result = a / b * c;
+                    break;
+                case "**":
+                    result = a * b * c;
+                    break;
+                case "*/":
+                    result = a * b / c;
+                    break;
+                case "/-":
+                    result = a / b - c;
+                    break;
+                case "+/":
+                    result = a + b / c;
+                    break;
+                case "/+":
+                    result = a / b + c;
+                    break;
+                case "*-":
+                    result = a * b - c;
+                    break;
+                default:
+                    return "error";
+            }
+            return String.valueOf(result);
+        }
+        double result1 = 0;
+        String op3 = op1;
+        switch (op3) {
+            case "+":
+                result1 = a + b;
                 break;
             case "-":
-                result = a - b;
+                result1 = a - b;
                 break;
-                 case "*":
-                     result = a * b;
-                     break;
-                 case "/":
-                     result = a / b;
-                     break;
-            case "--":
-                result = a - b - c;
+            case "*":
+                result1 = a * b;
                 break;
-            case "-+":
-                result = a - b + c;
+            case "/":
+                result1 = a / b;
                 break;
-            case "++":
-                result = a + b + c;
-                break;
-            case "+-":
-                result = a + b - c;
-                break;
-                 case "//":
-                     result = a / b / c;
-                     break;
-                 case "/*":
-                     result = a / b * c;
-                     break;
-                 case "**":
-                     result = a * b * c;
-                     break;
-                 case "*/":
-                     result = a * b / c;
-                     break;
             default:
                 return "error";
         }
-        return String.valueOf(result);
+        return String.valueOf(result1);
     }
 }
