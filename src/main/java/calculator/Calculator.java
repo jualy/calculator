@@ -8,7 +8,54 @@ package calculator;
 public class Calculator {
 
     public String calculate(String[] expr) {
-        return "0";
-    }
+        double a = Double.parseDouble(expr[0]);
+        String op1 = expr[1];
+        double b = Double.parseDouble(expr[2]);
+        String op2 = expr[3];
+        double c = Double.parseDouble(expr[4]);
+        double result = 0;
+        String op = op1 + op2;
 
+             switch (op) {
+                case "+":
+                result = a + b;
+                break;
+            case "-":
+                result = a - b;
+                break;
+                 case "*":
+                     result = a * b;
+                     break;
+                 case "/":
+                     result = a / b;
+                     break;
+            case "--":
+                result = a - b - c;
+                break;
+            case "-+":
+                result = a - b + c;
+                break;
+            case "++":
+                result = a + b + c;
+                break;
+            case "+-":
+                result = a + b - c;
+                break;
+                 case "//":
+                     result = a / b / c;
+                     break;
+                 case "/*":
+                     result = a / b * c;
+                     break;
+                 case "**":
+                     result = a * b * c;
+                     break;
+                 case "*/":
+                     result = a * b / c;
+                     break;
+            default:
+                return "error";
+        }
+        return String.valueOf(result);
+    }
 }
